@@ -14,7 +14,7 @@
 ```
 
 index.jsp 를 생성하면 jsp오류가 발생한다.
-https://mvnrepository.com/ 사이트에서 톰캣api dependency 추가하면 해결
+https://mvnrepository.com/ 사이트에서 톰캣api dependency 추가하면 해결   
 이외에 플러그인 버전이 낮아 발생하는 오류가 난다면 해당 플러그인 빌드도 넣어준다.
 ```xml
 <build>
