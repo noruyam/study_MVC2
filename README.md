@@ -1,6 +1,6 @@
 # study_MVC2
 
-메이븐 프로젝트 생성하면 pom.xml에 web.xml 없어 오류가 발생한다.
+메이븐 프로젝트 생성하면 pom.xml에 web.xml 없어 오류가 발생한다.   
 해당 web.xml은 다운받은 톰캣 ROOT파일 안에 존재하는 web.xml을 복사해서 넣으면 해결
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
