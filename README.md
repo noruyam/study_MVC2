@@ -18,14 +18,14 @@ https://mvnrepository.com/ 사이트에서 톰캣api dependency 추가하면 해
 이외에 플러그인 버전이 낮아 발생하는 오류가 난다면 해당 플러그인 빌드도 넣어준다.
 ```xml
 <build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>3.3.2</version>
-			</plugin>
-		</plugins>
-	</build>
+ <plugins>
+  <plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-war-plugin</artifactId>
+	<version>3.3.2</version>
+  </plugin>
+ </plugins>
+</build>
 <dependencies>
   <dependency>
         <groupId>org.apache.tomcat</groupId>
