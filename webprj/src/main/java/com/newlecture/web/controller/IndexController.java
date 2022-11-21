@@ -13,7 +13,7 @@ public class IndexController implements Controller{
 		// TODO Auto-generated method stub
 		 
 //		ModelAndView mv = new ModelAndView("/WEB-INF/view/index.jsp");// mv.setViewName("/WEB-INF/view/index.jsp");
-		ModelAndView mv = new ModelAndView("index"); //dispatcher-servlet.xml에 InternalResourceViewResolver 설정하면 됨
+		ModelAndView mv = new ModelAndView("root.index"); //dispatcher-servlet.xml에 InternalResourceViewResolver 설정하면 됨
 		mv.addObject("data","Hello world@@@");
 		return mv;
 	}
