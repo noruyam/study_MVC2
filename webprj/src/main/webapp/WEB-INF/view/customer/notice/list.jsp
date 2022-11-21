@@ -40,13 +40,14 @@
 				</tr>
 			</thead>
 			<tbody>
-			<c:forEach var="n" items="${ list}">
+			
+			<c:forEach var="n" items="${list}">
 				<tr>
-					<td>$(n.id)</td>
+					<td>${n.id}</td>
 					<td class="title indent text-align-left"><a href="detail.html">${n.title}</a></td>
 					<td>${n.writerId}</td>
-					<td>$(n.regDate)</td>
-					<td>$(n.hit)</td>
+					<td>${n.regDate}</td>
+					<td>${n.hit}</td>
 				</tr>
 			</c:forEach>
 
