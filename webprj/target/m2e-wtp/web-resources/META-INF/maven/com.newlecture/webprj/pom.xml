@@ -15,7 +15,11 @@
 		</plugins>
 	</build>
 	<dependencies>
-
+  <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.200</version>
+        </dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-api -->
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
