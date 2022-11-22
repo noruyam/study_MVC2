@@ -42,13 +42,19 @@
 			<tbody>
 			
 			<c:forEach var="n" items="${list}">
-				<tr>
+				 <tr>
 					<td>${n.id}</td>
 					<td class="title indent text-align-left"><a href="detail.html">${n.title}</a></td>
 					<td>${n.writerId}</td>
 					<td>${n.regDate}</td>
 					<td>${n.hit}</td>
-				</tr>
+				</tr> -
+				<%-- <tr>
+					<td>${n.seq}</td>
+					<td class="title indent text-align-left"><a href="detail.html">${n.info}</a></td>
+					<td>${n.topic}</td>
+				</tr>  --%>
+				
 			</c:forEach>
 
 			</tbody>

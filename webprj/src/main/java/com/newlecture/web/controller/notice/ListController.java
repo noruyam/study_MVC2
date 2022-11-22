@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
+import com.newlecture.web.entity.Help;
 import com.newlecture.web.entity.Notice;
 import com.newlecture.web.service.NoticeService;
 
@@ -25,6 +26,7 @@ public class ListController implements Controller{
 		
 		ModelAndView mv = new ModelAndView("notice.list"); 
 		List<Notice> list= noticeService.getList(1, "TITLE", "");
+//		List<Help> list= noticeService.getHelpList(1, "INFO", "");
 		mv.addObject("list",list);
 		return mv;
 	}

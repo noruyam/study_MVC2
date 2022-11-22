@@ -10,23 +10,67 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.newlecture.web.entity.Help;
 import com.newlecture.web.entity.Notice;
 
 public class NoticeService {
-	/*
-	 * private String url = "jdbc:oracle:thin:@localhost:1521/xepdb1"; 
-	 * private String uid = "NEWLEC"; 
-	 * private String pwd = "11111"; 
-	 * private String driver ="oracle.jdbc.driver.OracleDriver";
-	 */
 	
+	  private String url = "jdbc:oracle:thin:@localhost:1521/orcl"; 
+	  private String uid = "c##cypark"; 
+	  private String pwd = "1q2w3e4r!!"; 
+	  private String driver ="oracle.jdbc.driver.OracleDriver";
+	 
 	
-	private String url = "jdbc:h2:tcp://localhost/~/test";
-	private String uid = "sa";
-	private String pwd = "";
-	private String driver = "org.h2.Driver";
-	
+		
+//	 private String url = "jdbc:h2:tcp://localhost/~/test"; 
+//	 private String uid = "sa"; 
+//	 private String pwd = ""; 
+//	 private String driver = "org.h2.Driver";
+		 
 
+	  public List<Help> getHelpList(int page, String field, String query) throws ClassNotFoundException, SQLException{
+		  int start = 1 + (page-1)*10;     // 1, 11, 21, 31, ..
+			int end = 10*page; // 10, 20, 30, 40...
+			
+			String sql = "SELECT * FROM HELP WHERE "+field+" LIKE ? AND SEQ BETWEEN ? AND ?";	
+			
+			Class.forName(driver);
+			Connection con = DriverManager.getConnection(url,uid, pwd);
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1, "%"+query+"%");
+			st.setInt(2, start);
+			st.setInt(3, end);
+			ResultSet rs = st.executeQuery();
+			
+			List<Help> list = new ArrayList<Help>();
+			
+			while(rs.next()){
+			    String title = rs.getString("TOPIC");
+			    int id = rs.getInt("SEQ");
+			    String writerId = rs.getString("INFO");
+			    
+			    
+			    Help help = new Help(
+			    					title,
+			    					id,
+			    					writerId
+			    				);
+
+			    list.add(help);
+			    
+			}
+
+			
+			rs.close();
+			st.close();
+			con.close();
+			
+			return list;
+		}
+		  
+	  
+	  
+	  
 	public List<Notice> getList(int page, String field, String query) throws ClassNotFoundException, SQLException{
 		
 		int start = 1 + (page-1)*10;     // 1, 11, 21, 31, ..
@@ -103,7 +147,7 @@ public class NoticeService {
 		String content = notice.getContent();
 		String files = notice.getFiles();
 		
-		String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
+//		String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
 		String sql = "INSERT INTO notice (    " + 
 				"    title," + 
 				"    writer_id," + 
@@ -136,7 +180,7 @@ public class NoticeService {
 		String files = notice.getFiles();
 		int id = notice.getId();
 		
-		String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
+//		String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
 		String sql = "UPDATE NOTICE " + 
 				"SET" + 
 				"    TITLE=?," + 
@@ -164,7 +208,7 @@ public class NoticeService {
 	
 	public int delete(int id) throws ClassNotFoundException, SQLException {
 	
-		String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
+//		String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
 		String sql = "DELETE NOTICE WHERE ID=?";
 		
 		Class.forName(driver);
