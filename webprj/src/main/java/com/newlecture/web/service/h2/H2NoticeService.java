@@ -1,7 +1,6 @@
 package com.newlecture.web.service.h2;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,6 +10,8 @@ import java.util.Date;
 import java.util.List;
 
 import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.newlecture.web.entity.Help;
 import com.newlecture.web.entity.Notice;
@@ -23,6 +24,7 @@ public class H2NoticeService implements NoticeService {
 //	private String pwd = "";
 //	private String driver = "org.h2.Driver";
 
+	@Autowired
 	private DataSource dataSource;
 	
 

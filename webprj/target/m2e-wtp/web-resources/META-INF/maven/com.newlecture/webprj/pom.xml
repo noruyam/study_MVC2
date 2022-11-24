@@ -46,19 +46,28 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc10 -->
+		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc10 -->
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc10</artifactId>
+			<version>19.16.0.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>5.3.23</version>
+		</dependency>
 <dependency>
-    <groupId>com.oracle.database.jdbc</groupId>
-    <artifactId>ojdbc10</artifactId>
-    <version>19.16.0.0</version>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.9.2</version>
 </dependency>
-<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
 <dependency>
-    <groupId>org.springframework</groupId>
-    <artifactId>spring-jdbc</artifactId>
-    <version>5.3.23</version>
+	<groupId>com.fasterxml.jackson.core</groupId>
+	<artifactId>jackson-core</artifactId>
+	<version>2.9.2</version>
 </dependency>
-
 	</dependencies>
 
 	<properties>
