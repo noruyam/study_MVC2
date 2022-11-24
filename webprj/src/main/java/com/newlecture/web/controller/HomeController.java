@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/")
 public class HomeController { //implements Controller{
 
 //	@Override
@@ -16,14 +17,10 @@ public class HomeController { //implements Controller{
 //		return mv;
 //	}
 
-	@RequestMapping("/index")
+	@RequestMapping("index")
 	public String index() {
 		return "root.index";
 	}
 
-	@RequestMapping("/help")
-	public void help() {
-		
-	}
 
 }
