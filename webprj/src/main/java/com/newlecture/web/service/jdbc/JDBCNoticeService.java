@@ -12,6 +12,8 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.newlecture.web.entity.Help;
 import com.newlecture.web.entity.Notice;
 import com.newlecture.web.service.NoticeService;
@@ -23,11 +25,9 @@ public class JDBCNoticeService implements NoticeService {
 //	private String pwd = "1q2w3e4r!!";
 //	private String driver = "oracle.jdbc.driver.OracleDriver";
 
+	@Autowired
 	private DataSource dataSource;
 
-	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
-	}
 
 	public List<Help> getHelpList(int page, String field, String query) throws ClassNotFoundException, SQLException {
 		int start = 1 + (page - 1) * 10; // 1, 11, 21, 31, ..
