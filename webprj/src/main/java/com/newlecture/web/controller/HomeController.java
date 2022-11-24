@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class IndexController { //implements Controller{
+public class HomeController { //implements Controller{
 
 //	@Override
 //	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -17,9 +17,13 @@ public class IndexController { //implements Controller{
 //	}
 
 	@RequestMapping("/index")
-	public void aaaa() {
-		System.out.println("Test");
+	public String index() {
+		return "root.index";
+	}
+
+	@RequestMapping("/help")
+	public void help() {
 		
 	}
-	
+
 }
