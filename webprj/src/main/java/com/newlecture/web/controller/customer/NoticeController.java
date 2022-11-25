@@ -21,7 +21,7 @@ public class NoticeController {
 	private NoticeService noticeService;
 	
 	@RequestMapping("list")
-	public String list(@RequestParam(name = "p", defaultValue = "1") String page) throws ClassNotFoundException, SQLException {
+	public String list(@RequestParam(name = "p",defaultValue ="1") String page) throws ClassNotFoundException, SQLException {
 		List<Notice> list= noticeService.getList(1, "TITLE", "");
 		return "notice.list";
 	}

@@ -73,7 +73,7 @@ public class JDBCNoticeService implements NoticeService {
 		int start = 1 + (page - 1) * 10; // 1, 11, 21, 31, ..
 		int end = 10 * page; // 10, 20, 30, 40...
 
-		String sql = "SELECT * FROM NOTICE WHERE " + field + " LIKE ? AND id BETWEEN ? AND ?";
+		String sql = "SELECT * FROM NOTICE_view WHERE " + field + " LIKE ? AND id BETWEEN ? AND ?";
 
 //		Class.forName(driver);
 //		Connection con = DriverManager.getConnection(url, uid, pwd);
@@ -135,11 +135,11 @@ public class JDBCNoticeService implements NoticeService {
 		String title = notice.getTitle();
 		String writerId = notice.getWriterId();
 		String content = notice.getContent();
-		String files = notice.getFiles();
+//		String files = notice.getFiles();
 
 //		String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
-		String sql = "INSERT INTO notice (    " + "    title," + "    writer_id," + "    content," + "    files"
-				+ ") VALUES (?,?,?,?)";
+		String sql = "INSERT INTO notice ( id ,  " + "    title," + "    writer_id," + "    content" 
+				+ ") VALUES ((SELECT NVL(MAX(id),0)+1 FROM notice),?,?,?)";
 
 //		Class.forName(driver);
 //		Connection con = DriverManager.getConnection(url, uid, pwd);
@@ -150,7 +150,7 @@ public class JDBCNoticeService implements NoticeService {
 		st.setString(1, title);
 		st.setString(2, writerId);
 		st.setString(3, content);
-		st.setString(4, files);
+//		st.setString(4, files);
 
 		int result = st.executeUpdate();
 
